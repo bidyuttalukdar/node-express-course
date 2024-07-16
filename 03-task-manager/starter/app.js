@@ -4,14 +4,14 @@ const app = express();
 require('dotenv').config();
 
 const tasks = require('./routes/task');
-const connectDB = require('./config/db');
+const connectDB = require('./db/connect');
 
 
 
 //Middleware
 
 // to get the data into JSON
-app.use(express.json({ extended: false }));
+app.use(express.json());
 app.use(express.static("./public"));
 
 
