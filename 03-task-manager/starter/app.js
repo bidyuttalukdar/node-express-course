@@ -8,7 +8,7 @@ const connectDB = require('./db/connect');
 
 //Middleware 
 const notFound = require('./middleware/notFound');
-
+const errorHandlerMiddleware = require('./middleware/errorHandler');
 
 
 // to parse the data
@@ -18,7 +18,7 @@ app.use(express.static("./public"));
 
 //Middleware
 app.use(notFound)
-
+app.use(errorHandlerMiddleware)
 // Routes
 app.use('/api/v1/tasks', tasks);
 
