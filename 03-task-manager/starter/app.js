@@ -6,7 +6,7 @@ require('dotenv').config();
 const tasks = require('./routes/task');
 const connectDB = require('./db/connect');
 
-//Middleware 
+// importing middlewares
 const notFound = require('./middleware/notFound');
 const errorHandlerMiddleware = require('./middleware/errorHandler');
 
@@ -16,9 +16,10 @@ app.use(express.json());
 app.use(express.static("./public"));
 
 
-//Middleware
+// middlewares
 app.use(notFound)
 app.use(errorHandlerMiddleware)
+
 // Routes
 app.use('/api/v1/tasks', tasks);
 
